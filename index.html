@@ -6,9 +6,14 @@
     <title>Reconcile Automation</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-50 touch-manipulation">
+<body class="bg-gray-100 touch-manipulation">
     <div class="min-h-screen flex justify-center items-center">
         <div class="text-center space-y-6">
+            <div class="max-w-70 space-y-3">
+                <img src="LogoGramm.png" alt="Logo Gramm Hotel">
+                <h1 class="font-bold text-xl" id="greeting"></h1>
+            </div>
+
             <div id="number" class="text-5xl font-bold">0</div>
 
             <div class="space-x-4">
@@ -29,8 +34,20 @@
 
         let count = 0;
         let history = [];
+        const hour = 15;
+        let greeting = document.getElementById('greeting');
 
         let displayNumber = document.getElementById('number');
+
+        if (hour >= 18 || hour < 6) {
+            greeting.textContent = "Selamat Malam, Mei Kristanti";
+        } else if (hour >= 16) {
+            greeting.textContent = "Selamat Sore, Mei Kristanti";
+        } else if (hour >= 12) {
+            greeting.textContent = "Selamat Siang, Mei Kristanti";
+        } else {
+            greeting.textContent = "Selamat Pagi, Mei Kristanti";
+        }
 
         function addCount(value) {
             count += value;
